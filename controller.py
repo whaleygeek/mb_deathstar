@@ -21,4 +21,4 @@ def run():
         display.set_pixel(2,2,0)
         loop()
         sleep(100)
-#run()
+run()
