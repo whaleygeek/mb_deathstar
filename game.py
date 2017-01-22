@@ -105,15 +105,13 @@ def start_missile():
 
 def move_missile():
     print("will move_missile")
-    if missile is not None: # there is an active missile
-        pass
-        #TODO:
-        # if missile now out of range:
-        #   set_missile_missed()
-        # elif missile not yet hit target:
-        #   move missile forward by 1
-        # else must have hit
-        #   set_missile_hit()
+    #TODO:
+    # if missile now out of range:
+    #   set_missile_missed()
+    # elif missile not yet hit target:
+    #   move missile forward by 1
+    # else must have hit
+    #   set_missile_hit()
 
 def ejector_seat():
     print("will ejector_seat")
@@ -208,7 +206,8 @@ def play_game():
         time.sleep(1/float(FRAMES_PER_SEC))
 
         fly_xwing()
-        move_missile()
+        if missile is not None:
+            move_missile()
 
         if missile_missed:
             animate_missile_missed()
