@@ -31,7 +31,7 @@ if sys.version_info[0] != 2:
     sys.exit()
 
 import time
-#TODO: import microbit      # auto-connects to micro:bit
+import controller # will auto-connect to the controller
 #TODO: import starwars      # auto-connects to Minecraft
 #TODO: import pygame       # for sounds
 
