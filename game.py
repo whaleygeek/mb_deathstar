@@ -93,10 +93,10 @@ def fly_xwing():
 
         # change xwing position based on u/d/l/r
         if left:
-            xwing.move_by(x=-1)
+            xwing.rotate_by(yaw=-10)
             print("left")
         if right:
-            xwing.move_by(x=+1)
+            xwing.rotate_by(yaw=+10)
             print("right")
         if up:
             xwing.move_by(y=+1)
@@ -109,7 +109,7 @@ def fly_xwing():
         if eject: print("yeehar!!")
 
     # always move xwing forward by one block
-    ##xwing.move_by(z=-1)
+    xwing.fly()
 
     # if xwing crashes into any block
     #   set_xwing_crashed()
