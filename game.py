@@ -83,21 +83,38 @@ def wait_for_start():
 
 def fly_xwing():
     buttons = controller.get_command_flags()
-    up    = 'U' in buttons
-    down  = 'D' in buttons
-    left  = 'L' in buttons
-    right = 'R' in buttons
-    fire  = 'A' in buttons
-    eject = 'B' in buttons
+    if buttons is not None:
+        up    = 'U' in buttons
+        down  = 'D' in buttons
+        left  = 'L' in buttons
+        right = 'R' in buttons
+        fire  = 'A' in buttons
+        eject = 'B' in buttons
 
-    # change xwing position based on u/d/l/r
-    if left: xwing
+        # change xwing position based on u/d/l/r
+        if left:
+            xwing.move_by(x=-1)
+            print("left")
+        if right:
+            xwing.move_by(x=+1)
+            print("right")
+        if up:
+            xwing.move_by(y=+1)
+            print("up")
+        if down:
+            xwing.move_by(y=-1)
+            print("down")
+
+        if fire:  print("boom!!")
+        if eject: print("yeehar!!")
+
     # always move xwing forward by one block
+    ##xwing.move_by(z=-1)
 
     # if xwing crashes into any block
     #   set_xwing_crashed()
-    if fire:  start_missile()
-    if eject: ejector_seat()
+    #if fire:  start_missile()
+    #if eject: ejector_seat()
 
 def start_missile():
     print("will start_missile")
@@ -246,7 +263,12 @@ def whereami():
 #            game_over_failed()
 
 #whereami()
+
 create_xwing()
+while True:
+    print("fly")
+    fly_xwing()
+    time.sleep(0.1)
 
 
 # END

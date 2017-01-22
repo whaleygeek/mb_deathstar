@@ -169,11 +169,11 @@ class MCObject(object):
     def draw(self):
         self.shape.draw()
 
-    def move_by(self, xd=None, yd=None, zd=None):
+    def move_by(self, x=None, y=None, z=None):
         nx, ny, nz = self.position.x, self.position.y, self.position.z
-        if xd is not None: nx += xd
-        if yd is not None: ny += yd
-        if zd is not None: nz += zd
+        if x is not None: nx += x
+        if y is not None: ny += y
+        if z is not None: nz += z
         self.shape.move(nx, ny, nz)
 
     def move_to(self, x, y, z):
