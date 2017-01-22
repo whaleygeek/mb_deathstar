@@ -2,6 +2,9 @@
 #github.com/martinohanlon/minecraft-stuff
 #Raspberry Pi, Minecraft - Minecraft 'stuff' extensions
 
+# Note, this is a modified version to include object rotation.
+# It was taken from the mcfly project from Martin O'Hanlon
+
 try:
     import mcpi.minecraft as minecraft
     import mcpi.block as block
