@@ -1,6 +1,6 @@
 from microbit import *
 
-def loop():
+def fly():
     x = accelerometer.get_x()
     y = accelerometer.get_y()
     a = button_a.is_pressed()
@@ -16,9 +16,9 @@ def loop():
 def run():
     while True:
         display.set_pixel(2,2,9)
-        loop()
+        fly()
         sleep(100)
         display.set_pixel(2,2,0)
-        loop()
+        fly()
         sleep(100)
 run()
