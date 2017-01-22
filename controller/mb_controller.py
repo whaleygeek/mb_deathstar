@@ -1,10 +1,6 @@
 # mb_controller.py - a simple controller module using serial polling of a micro:bit
 
-##import thread
-##import atexit
-import time
 import microbit # will auto-connect to micro:bit
-
 
 def get_command_flags():
     """Get a collection of flags, one for each possible button/action"""
