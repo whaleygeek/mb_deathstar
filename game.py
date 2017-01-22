@@ -9,7 +9,7 @@ DEATHSTAR_CENTRE_POS = (100,100,10)
 TARGET_POS           = (100,100,10)
 IN_RANGE             = ((100,100,10), (100,100,10))
 XWING_START_POS      = (10,10,10)
-PLAY_TIME_SECS       = (2*60)
+PLAY_TIME_SECS       = 5 #(2*60)
 NUMBER_OF_TRIES      = 3
 FRAMES_PER_SEC       = 10
 
@@ -74,6 +74,7 @@ def setup_game():
 
 def wait_for_start():
     print("will wait_for_start")
+    raw_input("press RETURN to start")
     #TODO: wait for A button press on micro:bit
     #loop, read from micro:bit, until see 'A'
 
