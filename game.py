@@ -8,7 +8,7 @@
 DEATHSTAR_CENTRE_POS = (100,100,10)
 TARGET_POS           = (100,100,10)
 IN_RANGE             = ((100,100,10), (100,100,10))
-XWING_START_POS      = (10,10,10)
+XWING_START_POS      = (46,10,-61)
 PLAY_TIME_SECS       = 5 #(2*60)
 NUMBER_OF_TRIES      = 3
 FRAMES_PER_SEC       = 10
@@ -31,14 +31,8 @@ if sys.version_info[0] != 2:
     sys.exit()
 
 import time
-import controller # will auto-connect to the controller
-#TODO: import starwars      # auto-connects to Minecraft
-#TODO: import pygame       # for sounds
-
-# LOAD SOUNDS
-#TODO:   init pygame
-#TODO:   init pygame mixer
-#TODO:   load pygame sounds into buffers
+import controller # auto-connects to the controller
+import starwars   # auto-connects to Minecraft
 
 
 #----- GAME STATE -------------------------------------------------------------
@@ -63,8 +57,14 @@ def build_deathstar():
     #TODO: build at DEATHSTAR_CENTRE_POS
 
 def create_xwing():
-    print("will build_xwing")
-    #TODO: build at XWING_START_POS
+    global xwing
+    if xwing is not None:
+        # kill off old x-wing
+        xwing.clear()
+        xwing = None
+
+    xwing = starwars.MCObject(starwars.XWING_BLOCKS, XWING_START_POS)
+    xwing.draw()
 
 def setup_game():
     clear_space()
@@ -223,20 +223,31 @@ def play_game():
     return missile_hit
 
 
+def whereami():
+    import starwars.mcpi.minecraft as minecraft
+    mc = minecraft.Minecraft.create()
+    x,y,z = mc.player.getTilePos()
+    print(x,y,z)
+
 #----- MAIN PROGRAM -----------------------------------------------------------
 
-while True:
-    setup_game()
-    splash_screen()
-    wait_for_start()
-    start_game()
+#if __name__ == "__main__":
+#    while True:
+#        setup_game()
+#        splash_screen()
+#        wait_for_start()
+#        start_game()
+#
+#        success = play_game()
+#
+#        if success:
+#            game_over_succeeded()
+#        else:
+#            game_over_failed()
 
-    success = play_game()
+#whereami()
+create_xwing()
 
-    if success:
-        game_over_succeeded()
-    else:
-        game_over_failed()
 
 # END
 

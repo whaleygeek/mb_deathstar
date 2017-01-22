@@ -3,6 +3,7 @@
 
 import mcpi.minecraft as minecraft
 import mcpi.block as block
+import mcpi.vec3 as vec3
 import mcpi.minecraftstuff as mcstuff
 import math
 from time import sleep
@@ -152,6 +153,10 @@ def findPointOnSphere(cx, cy, cz, radius, phi, theta):
 
 class MCObject(object):
     def __init__(self, blocks, pos):
+        # Convert tuple/list to a real position
+        if type(pos) == tuple or type(pos) == list:
+            pos = vec3.Vec3(pos[0], pos[1], pos[2])
+
         self.blocks       = blocks
         self.mc           = minecraft.Minecraft.create()
         self.shape        = mcstuff.MinecraftShape(self.mc, pos, blocks)
