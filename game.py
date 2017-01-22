@@ -26,7 +26,7 @@ FRAMES_PER_SEC       = 10
 #----- LOAD ALL THE DEPENDENT PARTS -------------------------------------------
 
 import sys
-if sys.version[0] != 2:
+if sys.version_info[0] != 2:
     print("Please run this game with Python version 2")
     sys.exit()
 
