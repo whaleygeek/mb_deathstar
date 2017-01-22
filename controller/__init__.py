@@ -1,4 +1,6 @@
 
-##from mb_controller import *
+# The micro:bit is the controller
+from mb_controller import *
 
-from pg_controller import *
+# Pygame is the controller
+##from pg_controller import *

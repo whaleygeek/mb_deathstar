@@ -82,20 +82,22 @@ def wait_for_start():
 #----- GAME ACTIONS -----------------------------------------------------------
 
 def fly_xwing():
-    print("will fly_xwing")
-    #TODO:
-    # read from micro:bit
-    #   will be one of: ['U','D','L','R','A','B']
-    # if U D L R (l?, r?)
-    #   change xwing position
-    # (always) move xwing forward by one block
-    #
+    buttons = controller.get_command_flags()
+    up    = 'U' in buttons
+    down  = 'D' in buttons
+    left  = 'L' in buttons
+    right = 'R' in buttons
+    fire  = 'A' in buttons
+    eject = 'B' in buttons
+
+    # change xwing position based on u/d/l/r
+    if left: xwing
+    # always move xwing forward by one block
+
     # if xwing crashes into any block
     #   set_xwing_crashed()
-    # elif A
-    #   start_missile()
-    # elif B # ejector seat
-    #   ejector_seat()
+    if fire:  start_missile()
+    if eject: ejector_seat()
 
 def start_missile():
     print("will start_missile")
